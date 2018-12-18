@@ -1,0 +1,23 @@
+{
+  "name": "mmm-dropbox",
+  "version": "1.0.0",
+  "description": "Dropbox module for MagicMirror",
+  "main": "mmm-dropbox.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michael5r/mmm-dropbox.git"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "author": "Michael Schmidt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michael5r/mmm-dropbox/issues"
+  },
+  "homepage": "https://github.com/michael5r/mmm-dropbox#readme",
+  "dependencies": {
+    "dropbox": "^4.0.14",
+    "isomorphic-fetch": "^2.2.1"
+  }
+}

@@ -1,0 +1,12 @@
+.mmm-dropbox .inner {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.mmm-dropbox .inner img {
+    display: block;
+    border-radius: 5px;
+    overflow: hidden;
+}
