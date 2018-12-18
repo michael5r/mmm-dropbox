@@ -79,7 +79,7 @@ Seeing that photos come in all shapes & sizes, the `imagesPerRow` setting doesn'
 
 ## Row Types
 
-The `rowType` option is by default set to `wife` - which means that your first row of photos will be the newest photos you've uploaded and any other rows will be random images pulled from your total pool of photos. It is named this way because, well, that's what my wife wanted. Your other options are 'newest' (all images are shown in chronological order) or `random` (all images are shown in random order).
+The `rowType` option is by default set to `wife` - which means that your first row of photos will be the newest photos you've uploaded and any other rows will be random images pulled from your total pool of photos. It is named this way because, well, that's what my wife wanted. Your other options are `newest` (all images are shown in chronological order) or `random` (all images are shown in random order).
 
 
 ## FAQ
