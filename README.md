@@ -44,8 +44,8 @@ To use this module, simply add it to the `modules` array in the MagicMirror `con
     module: 'mmm-dropbox',
     position: 'bottom_bar', // pick whichever position you want
     config: {
-        token: <DROPBOX_ACCESS_TOKEN>,
-        folder: <DROPBOX_FOLDER_NAME>,
+        token: '<DROPBOX_ACCESS_TOKEN>',
+        folder: '<DROPBOX_FOLDER_NAME>',
         // ... and whatever else configuration options you want to use
     }
 },
@@ -57,11 +57,11 @@ To use this module, simply add it to the `modules` array in the MagicMirror `con
 Option               | Type      | Default   | Description
 ---------------------|-----------|-----------|-------------------------------------------------------------
 `token`              | `string`  | -         | **This value is required for this module to work.**
-`folder`             | `string`  | -         | Which Dropbox folder to pull images from. [Read more](#folder)
+`folder`             | `string`  |           | Which Dropbox folder to pull images from. [Read more](#folder)
 `imagesPerRow`       | `int`     | `4`       | Base number of images per row. [Read more](#images-per-row)
-`imagesMargin`       | `int`     | `10`      | How much blank space you want around the images. Default is 10px.
+`imagesMargin`       | `int`     | `10`      | How much blank space you want around the images in pixels.
 `numberOfRows`       | `int`     | `2`       | How many rows of images you wish to display.
-`rowType`            | `string`  | 'wife'    | One of: 'wife', 'newest', 'random'. [Read more](#row-types)
+`rowType`            | `string`  | `wife`    | One of: 'wife', 'newest', 'random'. [Read more](#row-types)
 `dataUpdateInterval` | `int`     | `2.16e+7` | How often to load new data from Dropbox, default is every 6 hours.
 `updateInterval`     | `int`     | `300000`  | How often to refresh your photos on the mirror, default is every 5 minutes.
 `initialLoadDelay`   | `int`     | `0`       | How long to delay the initial load (in ms)
@@ -74,7 +74,9 @@ If you set the `folder` option blank, your images will be pulled from the root o
 
 ## Images Per Row
 
-Seeing that photos come in all shapes & sizes, the `imagesPerRow` setting doesn't guarantee that you'll get exactly that number of images shown per row (because it would be impossible to line things up nicely that way). You should think of this setting as your baseline - meaning that if you set it to `4`, you could potentially get 3, 4, or 5 images per row, depending on whether they're landscape or portrait photos, but, if possible, you will get 4.
+Seeing that photos come in all shapes & sizes, the `imagesPerRow` setting doesn't guarantee that you'll get exactly that number of images shown per row (because it would be impossible to line things up nicely that way).
+
+You should think of this setting as your baseline - meaning that if you set it to `4`, you could potentially get 3, 4, or 5 images per row, depending on whether they're landscape or portrait photos, but, if possible, you will get 4.
 
 
 ## Row Types
