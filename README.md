@@ -20,7 +20,7 @@ What this module does allow you to do, however, is to:
 ## Installing the module
 
 1) Run `git clone https://github.com/michael5r/mmm-dropbox.git` from inside your `MagicMirror/modules` folder.
-2) Run `cd mmm-nest-status` in the same terminal window, then `npm install` to install the required Node modules.
+2) Run `cd mmm-dropbox` in the same terminal window, then `npm install` to install the required Node modules.
 
 
 ## Getting the Dropbox Access Token
