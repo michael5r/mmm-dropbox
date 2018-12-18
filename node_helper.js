@@ -32,9 +32,6 @@ module.exports = NodeHelper.create({
             fs.mkdirSync(IMG_FOLDER);
         }
 
-        // we only want to pull fresh dropbox data every 12 hours
-        this.lastDataPull = Date.now();
-        this.lastDataPullError = false;
     },
 
     getData: function() {
@@ -42,6 +39,10 @@ module.exports = NodeHelper.create({
 
         if (this.timer) {
             clearTimeout(this.timer);
+        }
+
+        if (this.dataTimer) {
+            clearTimeout(this.dataTimer);
         }
 
         const self = this;
@@ -139,6 +140,15 @@ module.exports = NodeHelper.create({
     },
 
     sortData: function() {
+
+        var self = this;
+
+        if (!this.dataTimer) {
+            // set time for next data call
+            this.dataTimer = setTimeout(() => {
+                self.getData();
+            }, self.config.dataUpdateInterval);
+        }
 
         // sort this.files based on time_taken property (newest first)
         this.files.sort((a, b) => b.time_taken.localeCompare(a.time_taken));

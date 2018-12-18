@@ -92,9 +92,8 @@ Module.register('mmm-dropbox', {
     socketNotificationReceived: function(notification, payload) {
 
         if (notification === 'MMM_DROPBOX_FILES') {
-            if (payload.length > 0) {
 
-                // TODO add dropbox data getter interval
+            if (payload.length > 0) {
 
                 // only use files that have been saved
                 var savedFiles = payload.filter(function(obj) { return obj.saved; });
@@ -103,12 +102,14 @@ Module.register('mmm-dropbox', {
                 if (savedFiles.length > 0) {
                     savedFiles.sort((a, b) => b.time_taken.localeCompare(a.time_taken));
                     this.files = savedFiles;
+                    if (!this.loaded) {
+                        this.loaded = true;
+                    }
                 }
-
-                this.loaded = true;
-
             }
+
             this.updateDom(this.config.animationSpeed);
+
         } else if (notification === 'MMM_DROPBOX_ERROR') {
             this.errMsg = payload;
             this.updateDom(this.config.animationSpeed);
