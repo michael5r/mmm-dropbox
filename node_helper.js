@@ -100,6 +100,37 @@ module.exports = NodeHelper.create({
                                 error: false
                             };
 
+                            // get meta data
+
+                            self.dbx.filesGetMetadata({
+                                path: fileObj.path,
+                                include_media_info: true
+                            }).then((fileMetaData) => {
+
+                                if ((fileMetaData.media_info) && (fileMetaData.media_info.metadata)) {
+
+                                    const fileMetaDataData = fileMetaData.media_info.metadata;
+
+                                    if (fileMetaDataData.dimensions) {
+                                        fileObj.width = fileMetaDataData.dimensions.width;
+                                        fileObj.height = fileMetaDataData.dimensions.height;
+                                    }
+
+                                    if (fileMetaDataData.location) {
+                                        fileObj.latitude = fileMetaDataData.location.latitude;
+                                        fileObj.longitude = fileMetaDataData.location.longitude;
+                                    }
+
+                                    if (fileMetaDataData.time_taken) {
+                                        fileObj.time_taken = new moment(fileMetaDataData.time_taken).format('x');
+                                    }
+
+                                }
+
+                            }).catch((err) => {
+                                // swallow errors
+                            });
+
                             self.files.push(fileObj);
                             filesAdded++
 
@@ -225,29 +256,9 @@ module.exports = NodeHelper.create({
                             if (file) {
                                 if (success) {
 
-                                    const fileMedia = image.metadata.media_info;
-
                                     // update file properties
                                     file.loaded = true;
                                     file.thumbnail = image.thumbnail; // base64-encoded thumbnail data
-
-                                    // check media data
-                                    if ((fileMedia) && (fileMedia.metadata)) {
-
-                                        if (fileMedia.metadata.dimensions) {
-                                            file.width = fileMedia.metadata.dimensions.width;
-                                            file.height = fileMedia.metadata.dimensions.height;
-                                        }
-
-                                        if (fileMedia.metadata.location) {
-                                            file.latitude = fileMedia.metadata.location.latitude;
-                                            file.longitude = fileMedia.metadata.location.longitude;
-                                        }
-
-                                        if (fileMedia.metadata.time_taken) {
-                                            file.time_taken = new moment(fileMedia.metadata.time_taken).format('x');
-                                        }
-                                    }
 
                                 } else {
                                     // want to make sure this file doesn't get loaded again
