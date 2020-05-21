@@ -1,6 +1,6 @@
 {
   "name": "mmm-dropbox",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Dropbox module for MagicMirror",
   "main": "mmm-dropbox.js",
   "repository": {
@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/michael5r/mmm-dropbox#readme",
   "dependencies": {
-    "dropbox": "^4.0.14",
+    "dropbox": "^4.0.30",
     "isomorphic-fetch": "^2.2.1"
   }
 }

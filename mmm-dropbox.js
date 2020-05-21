@@ -22,7 +22,7 @@ Module.register('mmm-dropbox', {
         updateInterval: 5 * 60 * 1000,          // every 5 minutes
         animationSpeed: 2 * 1000,
         initialLoadDelay: 0,
-        version: '1.0.0'
+        version: '1.0.1'
     },
 
     getStyles: function() {
