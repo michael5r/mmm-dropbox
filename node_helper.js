@@ -23,7 +23,7 @@ module.exports = NodeHelper.create({
 
         this.config = config;
         this.extensions = ['.jpg', '.jpeg', '.png', '.gif'];
-        this.dbx = new Dropbox({ fetch, accessToken: this.config.token });
+        this.dbx = new Dropbox({ accessToken: this.config.token });
         this.initialLoadDone = false; // triggered after the initial load of data
         this.filesToSave = 25;
 
@@ -74,7 +74,7 @@ module.exports = NodeHelper.create({
                 mode: 'filename'
             }).then((result) => {
 
-                const matches = result.matches;
+                const matches = result.result.matches;
                 if ((matches) && (matches.length > 0)) {
                     for (const j in matches) {
 
@@ -107,9 +107,9 @@ module.exports = NodeHelper.create({
                                 include_media_info: true
                             }).then((fileMetaData) => {
 
-                                if ((fileMetaData.media_info) && (fileMetaData.media_info.metadata)) {
+                                if ((fileMetaData.result.media_info) && (fileMetaData.result.media_info.metadata)) {
 
-                                    const fileMetaDataData = fileMetaData.media_info.metadata;
+                                    const fileMetaDataData = fileMetaData.result.media_info.metadata;
 
                                     if (fileMetaDataData.dimensions) {
                                         fileObj.width = fileMetaDataData.dimensions.width;
@@ -230,11 +230,11 @@ module.exports = NodeHelper.create({
                     entries: filesToDownload
                 }).then((data) => {
 
-                    if (data.entries.length > 0) {
+                    if (data.result.entries.length > 0) {
 
-                        for (const j in data.entries) {
+                        for (const j in data.result.entries) {
 
-                            const image = data.entries[j];
+                            const image = data.result.entries[j];
                             const success = (image['.tag'] === 'success');
                             let imageId = 0;
 
