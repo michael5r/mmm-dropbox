@@ -22,7 +22,7 @@ Module.register('mmm-dropbox', {
         updateInterval: 5 * 60 * 1000,          // every 5 minutes
         animationSpeed: 2 * 1000,
         initialLoadDelay: 0,
-        version: '1.0.1'
+        version: '2.0.0'
     },
 
     getStyles: function() {
@@ -76,9 +76,9 @@ Module.register('mmm-dropbox', {
         this.sendSocketNotification('MMM_DROPBOX_GET');
     },
 
-    notificationReceived(notification, payload, sender) {
+    notificationReceived: function(notification, payload, sender) {
 
-        if (notification === 'DOM_OBJECTS_CREATED') {
+        if (notification === 'MODULE_DOM_CREATED') {
             if (this.config.token === '') {
                 this.errMsg = 'Please add your Dropbox token to the MagicMirror config.js file.';
                 this.updateDom(this.config.animationSpeed);
