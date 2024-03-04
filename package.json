@@ -3,6 +3,9 @@
   "version": "2.0.0",
   "description": "Dropbox module for MagicMirror",
   "main": "mmm-dropbox.js",
+  "scripts": {
+	"auth": "node ./auth"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/michael5r/mmm-dropbox.git"
@@ -17,7 +20,12 @@
   },
   "homepage": "https://github.com/michael5r/mmm-dropbox#readme",
   "dependencies": {
-    "dropbox": "^10.24.0",
-    "isomorphic-fetch": "^3.0.0"
+    "dotenv": "^16.3.1",
+    "dropbox": "^10.34.0",
+    "isomorphic-fetch": "^3.0.0",
+    "node-fetch": "^2.7.0"
+  },
+  "devDependencies": {
+    "express": "^4.18.2"
   }
 }

@@ -1,3 +1,5 @@
 node_modules
 image_cache
 package-lock.json
+.env
+credentials.json
